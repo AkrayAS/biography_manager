@@ -13,23 +13,17 @@ public class Misc {
     }
 
     public Misc(String nameID, String author, String title) {
-        this.nameID = nameID;
+        new Misc(nameID, title);
         this.author = author;
-        this.title = title;
     }
 
     public Misc(String nameID, String author, String month, String title) {
-        this.nameID = nameID;
-        this.author = author;
+        new Misc(nameID, author, title);
         this.month = month;
-        this.title = title;
     }
 
     public Misc(String nameID, String author, String month, String title, int year) {
-        this.nameID = nameID;
-        this.author = author;
-        this.month = month;
-        this.title = title;
+        new Misc(nameID, author ,month, title);
         this.year = year;
     }
 

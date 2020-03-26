@@ -18,59 +18,32 @@ public class Article {
     }
 
     public Article(String nameID, String author, String journal, String month) {
-        this.nameID = nameID;
-        this.author = author;
-        this.journal = journal;
+        new Article(nameID, author, journal);
         this.month = month;
     }
 
     public Article(String nameID, String author, String journal, String month, int number) {
-        this.nameID = nameID;
-        this.author = author;
-        this.journal = journal;
-        this.month = month;
+        new Article(nameID, author, journal, month);
         this.number = number;
     }
 
     public Article(String nameID, String author, String journal, String month, int number, int pages) {
-        this.nameID = nameID;
-        this.author = author;
-        this.journal = journal;
-        this.month = month;
-        this.number = number;
+        new Article(nameID, author, journal, month, number);
         this.pages = pages;
     }
 
     public Article(String nameID, String author, String journal, String month, int number, int pages, String title) {
-        this.nameID = nameID;
-        this.author = author;
-        this.journal = journal;
-        this.month = month;
-        this.number = number;
-        this.pages = pages;
+        new Article(nameID, author, journal, month, number, pages);
         this.title = title;
     }
 
     public Article(String nameID, String author, String journal, String month, int number, int pages, String title, int volume) {
-        this.nameID = nameID;
-        this.author = author;
-        this.journal = journal;
-        this.month = month;
-        this.number = number;
-        this.pages = pages;
-        this.title = title;
+        new Article(nameID, author, journal, month, number, pages, title);
         this.volume = volume;
     }
 
     public Article(String nameID, String author, String journal, String month, int number, int pages, String title, int volume, int year) {
-        this.nameID = nameID;
-        this.author = author;
-        this.journal = journal;
-        this.month = month;
-        this.number = number;
-        this.pages = pages;
-        this.title = title;
-        this.volume = volume;
+        new Article(nameID, author, journal, month, number, pages, title, volume);
         this.year = year;
     }
 

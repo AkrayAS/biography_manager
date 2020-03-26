@@ -18,22 +18,13 @@ public class Techreport {
     }
 
     public Techreport(String nameID, String address, String author, String institution, String title, int year) {
-        this.nameID = nameID;
+        new Techreport(nameID, author, institution, title, year);
         this.address = address;
-        this.author = author;
-        this.institution = institution;
-        this.title = title;
-        this.year = year;
     }
 
     public Techreport(String nameID, String address, String author, String institution, String month, String title, int year) {
-        this.nameID = nameID;
-        this.address = address;
-        this.author = author;
-        this.institution = institution;
+        new Techreport(nameID, address, author, institution, title, year);
         this.month = month;
-        this.title = title;
-        this.year = year;
     }
 
     public String getNameID() {

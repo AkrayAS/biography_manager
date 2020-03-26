@@ -16,19 +16,12 @@ public class Masterthesis {
     }
 
     public Masterthesis(String nameID, String author, String month, String title, int year) {
-        this.nameID = nameID;
-        this.author = author;
+        new Masterthesis(nameID, author, title, year);
         this.month = month;
-        this.title = title;
-        this.year = year;
     }
 
     public Masterthesis(String nameID, String author, String month, String title, int year, String address) {
-        this.nameID = nameID;
-        this.author = author;
-        this.month = month;
-        this.title = title;
-        this.year = year;
+        new Masterthesis(nameID, author, month, title, year);
         this.address = address;
     }
 

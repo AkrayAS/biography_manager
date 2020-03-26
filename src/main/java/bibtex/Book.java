@@ -23,87 +23,38 @@ public class Book {
     }
 
     public Book(String nameID, String address, String author, String publisher, String title, int year) {
-        this.nameID = nameID;
+        new Book(nameID, author, publisher, title, year);
         this.address = address;
-        this.author = author;
-        this.publisher = publisher;
-        this.title = title;
-        this.year = year;
     }
 
     public Book(String nameID, String address, String author, String edition, String publisher, String title, int year) {
-        this.nameID = nameID;
-        this.address = address;
-        this.author = author;
+        new Book(nameID, address, address, publisher, title, year);
         this.edition = edition;
-        this.publisher = publisher;
-        this.title = title;
-        this.year = year;
     }
 
     public Book(String nameID, String address, String author, String edition, String editor, String publisher, String title, int year) {
-        this.nameID = nameID;
-        this.address = address;
-        this.author = author;
-        this.edition = edition;
+        new Book(nameID, address, author, edition, publisher, title, year);
         this.editor = editor;
-        this.publisher = publisher;
-        this.title = title;
-        this.year = year;
     }
 
     public Book(String nameID, String address, String author, String edition, String editor, String month, String publisher, String title, int year) {
-        this.nameID = nameID;
-        this.address = address;
-        this.author = author;
-        this.edition = edition;
-        this.editor = editor;
+        new Book(nameID, address, author, edition, editor, publisher, title, year);
         this.month = month;
-        this.publisher = publisher;
-        this.title = title;
-        this.year = year;
     }
 
     public Book(String nameID, String address, String author, String edition, String editor, String month, int number, String publisher, String title, int year) {
-        this.nameID = nameID;
-        this.address = address;
-        this.author = author;
-        this.edition = edition;
-        this.editor = editor;
-        this.month = month;
+        new Book(nameID, address, author, edition, editor, month, publisher, title, year);
         this.number = number;
-        this.publisher = publisher;
-        this.title = title;
-        this.year = year;
     }
 
     public Book(String nameID, String address, String author, String edition, String editor, String month, int number, String publisher, int series, String title, int year) {
-        this.nameID = nameID;
-        this.address = address;
-        this.author = author;
-        this.edition = edition;
-        this.editor = editor;
-        this.month = month;
-        this.number = number;
-        this.publisher = publisher;
+        new Book(nameID, address, author, edition, editor, month, number, publisher, title, year);
         this.series = series;
-        this.title = title;
-        this.year = year;
     }
 
     public Book(String nameID, String address, String author, String edition, String editor, String month, int number, String publisher, int series, String title, int volume, int year) {
-        this.nameID = nameID;
-        this.address = address;
-        this.author = author;
-        this.edition = edition;
-        this.editor = editor;
-        this.month = month;
-        this.number = number;
-        this.publisher = publisher;
-        this.series = series;
-        this.title = title;
+        new Book(nameID, address, author, edition, editor, month, number, publisher, series, title, year);
         this.volume = volume;
-        this.year = year;
     }
 
     public String getNameID() {
