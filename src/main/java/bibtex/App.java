@@ -9,9 +9,8 @@ public class App {
     private ArrayList<Core> cores = new ArrayList<>();
 
     public boolean add(Core core){
-        for (int i = 0; i < this.cores.size() ; i++) {
-            Core aux = this.cores.get(i);
-            if (aux.getName() == core.getName()){
+        for (Core aux : this.cores) {
+            if (aux.getName().equals(core.getName())) {
                 System.out.println("Name already taken!");
                 return false;
             }
@@ -23,7 +22,7 @@ public class App {
     public boolean remove(String name){
         for (int i = 0; i < this.cores.size() ; i++) {
             Core aux = this.cores.get(i);
-            if (aux.getName() == name){
+            if (aux.getName().equals(name)){
                 this.cores.remove(i);
                 return true;
             }
@@ -32,9 +31,8 @@ public class App {
     }
 
     public ArrayList<String> export(String name){
-        for (int i = 0; i < this.cores.size() ; i++) {
-            Core aux = this.cores.get(i);
-            if (aux.getName().equals(name)){
+        for (Core aux : this.cores) {
+            if (aux.getName().equals(name)) {
                 return aux.exportText();
             }
         }
@@ -42,10 +40,9 @@ public class App {
     }
 
     public void add(Article article, String name){
-        for (int i = 0; i < this.cores.size() ; i++) {
-            Core aux = this.cores.get(i);
-            if (aux.getName() == name){
-                if (!aux.isId(article.getNameID())){
+        for (Core aux : this.cores) {
+            if (aux.getName().equals(name)) {
+                if (aux.containID(article.getNameID())) {
                     aux.add(article);
                 }
             }
@@ -53,28 +50,25 @@ public class App {
     }
 
     public void add(Book book, String name){
-        for (int i = 0; i < this.cores.size() ; i++) {
-            Core aux = this.cores.get(i);
-            if (aux.getName() == name){
+        for (Core aux : this.cores) {
+            if (aux.getName().equals(name)) {
                 aux.add(book);
             }
         }
     }
 
     public void add( Masterthesis masterthesis, String name){
-        for (int i = 0; i < this.cores.size() ; i++) {
-            Core aux = this.cores.get(i);
-            if (aux.getName() == name){
+        for (Core aux : this.cores) {
+            if (aux.getName().equals(name)) {
                 aux.add(masterthesis);
             }
         }
     }
 
     public void add(Misc misc, String name){
-        for (int i = 0; i < this.cores.size() ; i++) {
-            Core aux = this.cores.get(i);
-            if (aux.getName() == name){
-                if (!aux.isId(misc.getNameID())){
+        for (Core aux : this.cores) {
+            if (aux.getName().equals(name)) {
+                if (aux.containID(misc.getNameID())) {
                     aux.add(misc);
                 }
             }
@@ -82,10 +76,9 @@ public class App {
     }
 
     public void add(Techreport techreport, String name){
-        for (int i = 0; i < this.cores.size() ; i++) {
-            Core aux = this.cores.get(i);
-            if (aux.getName() == name){
-                if (!aux.isId(techreport.getNameID())){
+        for (Core aux : this.cores) {
+            if (aux.getName().equals(name)) {
+                if (aux.containID(techreport.getNameID())) {
                     aux.add(techreport);
                 }
             }
@@ -93,9 +86,8 @@ public class App {
     }
 
     public void remove(String name, String id){
-        for (int i = 0; i < this.cores.size() ; i++) {
-            Core aux = this.cores.get(i);
-            if (aux.getName() == name){
+        for (Core aux : this.cores) {
+            if (aux.getName().equals(name)) {
                 aux.remove(id);
             }
         }
@@ -108,13 +100,13 @@ public class App {
     public void writeFile(String destination) throws IOException {
         FileWriter arq = new FileWriter(destination);
         PrintWriter writeArq = new PrintWriter(arq);
-        for (int i = 0; i < this.cores.size() ; i++) {
-            Core aux = this.cores.get(i);
+        for (Core aux : this.cores) {
             ArrayList<String> data = aux.exportText();
             for (int j = 0; j < data.size(); j++) {
                 writeArq.println(data.toString());
                 writeArq.println("\n");
             }
         }
+        writeArq.close();
     }
 }

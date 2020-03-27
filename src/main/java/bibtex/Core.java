@@ -1,7 +1,6 @@
 package bibtex;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Core {
     private String name;
@@ -69,10 +68,8 @@ public class Core {
         }
     }
 
-    public boolean isId(String id){
-        if (this.ids.contains(id)){
-            return true;
-        }else return false;
+    public boolean containID(String id){
+        return !this.ids.contains(id);
     }
 
     public String getName() {
@@ -83,41 +80,31 @@ public class Core {
         try {
             ArrayList<String> data = new ArrayList<>();
             if (this.articles.size() > 0){
-                Iterator<Article> iter = this.articles.iterator();
-                while(iter.hasNext()) {
-                    Article aux = iter.next();
+                for (Article aux : this.articles) {
                     data.add(aux.toString());
                 }
             }
 
             if (this.books.size() > 0){
-                Iterator<Book> iter = this.books.iterator();
-                while(iter.hasNext()) {
-                    Book aux = iter.next();
+                for (Book aux : this.books) {
                     data.add(aux.toString());
                 }
             }
 
             if (this.mastertheses.size() > 0){
-                Iterator<Masterthesis> iter = this.mastertheses.iterator();
-                while(iter.hasNext()) {
-                    Masterthesis aux = iter.next();
+                for (Masterthesis aux : this.mastertheses) {
                     data.add(aux.toString());
                 }
             }
 
             if (this.miscs.size() > 0){
-                Iterator<Misc> iter = this.miscs.iterator();
-                while(iter.hasNext()) {
-                    Misc aux = iter.next();
+                for (Misc aux : this.miscs) {
                     data.add(aux.toString());
                 }
             }
 
             if (this.techreports.size() > 0){
-                Iterator<Techreport> iter = this.techreports.iterator();
-                while(iter.hasNext()) {
-                    Techreport aux = iter.next();
+                for (Techreport aux : this.techreports) {
                     data.add(aux.toString());
                 }
             }
@@ -132,41 +119,31 @@ public class Core {
         try {
             ArrayList<String> data = new ArrayList<>();
             if (this.articles.size() > 0){
-                Iterator<Article> iter = this.articles.iterator();
-                while(iter.hasNext()) {
-                    Article aux = iter.next();
+                for (Article aux : this.articles) {
                     data.add(aux.getNameID());
                 }
             }
 
             if (this.books.size() > 0){
-                Iterator<Book> iter = this.books.iterator();
-                while(iter.hasNext()) {
-                    Book aux = iter.next();
+                for (Book aux : this.books) {
                     data.add(aux.getNameID());
                 }
             }
 
             if (this.mastertheses.size() > 0){
-                Iterator<Masterthesis> iter = this.mastertheses.iterator();
-                while(iter.hasNext()) {
-                    Masterthesis aux = iter.next();
+                for (Masterthesis aux : this.mastertheses) {
                     data.add(aux.getNameID());
                 }
             }
 
             if (this.miscs.size() > 0){
-                Iterator<Misc> iter = this.miscs.iterator();
-                while(iter.hasNext()) {
-                    Misc aux = iter.next();
+                for (Misc aux : this.miscs) {
                     data.add(aux.getNameID());
                 }
             }
 
             if (this.techreports.size() > 0){
-                Iterator<Techreport> iter = this.techreports.iterator();
-                while(iter.hasNext()) {
-                    Techreport aux = iter.next();
+                for (Techreport aux : this.techreports) {
                     data.add(aux.getNameID());
                 }
             }
@@ -178,63 +155,48 @@ public class Core {
     }
 
     public boolean remove(String id){
-        Iterator<String> iterIDs = this.ids.iterator();
-        while (iterIDs.hasNext()){
+        for (int i = 0; i < this.ids.size() ; i++) {
 
-            if (this.articles.size() > 0){
-                Iterator<Article> iter = this.articles.iterator();
-                while(iter.hasNext()) {
-                    Article aux = iter.next();
-                   if(aux.getNameID().equals(id)) {
-                       this.articles.remove(id);
-                       return true;
-                   }
+            for (int j = 0; j < this.books.size(); j++) {
+                Book aux = this.books.get(j);
+                if (aux.getNameID().equalsIgnoreCase(id)){
+                    this.books.remove(j);
+                    return true;
                 }
             }
 
-            if (this.books.size() > 0){
-                Iterator<Book> iter = this.books.iterator();
-                while(iter.hasNext()) {
-                    Book aux = iter.next();
-                    if(aux.getNameID().equals(id)) {
-                        this.books.remove(id);
-                        return true;
-                    }
+            for (int j = 0; j < this.mastertheses.size(); j++) {
+                Masterthesis aux = this.mastertheses.get(j);
+                if (aux.getNameID().equalsIgnoreCase(id)){
+                    this.mastertheses.remove(j);
+                    return true;
                 }
             }
 
-            if (this.mastertheses.size() > 0){
-                Iterator<Masterthesis> iter = this.mastertheses.iterator();
-                while(iter.hasNext()) {
-                    Masterthesis aux = iter.next();
-                    if(aux.getNameID().equals(id)) {
-                        this.mastertheses.remove(id);
-                        return true;
-                    }
+            for (int j = 0; j < this.articles.size(); j++) {
+                Article aux = this.articles.get(j);
+                if (aux.getNameID().equalsIgnoreCase(id)){
+                    this.articles.remove(j);
+                    return true;
                 }
             }
 
-            if (this.miscs.size() > 0){
-                Iterator<Misc> iter = this.miscs.iterator();
-                while(iter.hasNext()) {
-                    Misc aux = iter.next();
-                    if(aux.getNameID().equals(id)) {
-                        this.miscs.remove(id);
-                        return true;
-                    }
+            for (int j = 0; j < this.miscs.size(); j++) {
+                Misc aux = this.miscs.get(j);
+                if (aux.getNameID().equalsIgnoreCase(id)){
+                    this.miscs.remove(j);
+                    return true;
                 }
             }
 
-            if (this.techreports.size() > 0){
-                Iterator<Techreport> iter = this.techreports.iterator();
-                while(iter.hasNext()) {
-                    Techreport aux = iter.next();
-                    if(aux.getNameID().equals(id)) {
-                        this.techreports.remove(id);
-                        return true;
-                    }
+            for (int j = 0; j < this.techreports.size(); j++) {
+                Techreport aux = this.techreports.get(j);
+                if (aux.getNameID().equalsIgnoreCase(id)){
+                    this.techreports.remove(j);
+                    return true;
                 }
             }
+
         }
         return false;
     }

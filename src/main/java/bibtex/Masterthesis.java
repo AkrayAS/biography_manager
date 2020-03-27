@@ -33,9 +33,10 @@ public class Masterthesis {
     public String toString() {
         return "@masterthesis{" + this.nameID +"," + "\n" +
                 "  author={" + this.author + "}," + "\n" +
-                "  author={" + this.author + "}," + "\n" +
+                "  month={" + this.month + "}," + "\n" +
                 "  title={" + this.title + "}," + "\n" +
                 "  year={" + this.year + "}" + "\n" +
+                "  address={" + this.address + "}" + "\n" +
                 "}";
     }
 }
